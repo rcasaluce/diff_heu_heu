@@ -2,8 +2,9 @@
 
 # New Diff Model for White-box Model Validation with Statistical Model Checking and Process Mining
 
-## Overview
 
+
+## Overview
 
 `diff_heu_heu.py` is a Python command-line application designed to create a diff model, apply the Heuristics Miner algorithm, compare "old" and "new" process models, and generate visualizations highlighting their differences. 
 This tool is particularly useful for analyzing and visualizing the differences in simulated models.
@@ -56,6 +57,11 @@ This new diff model allows direct comparison of two mined models without relying
 - **Heuristics Miner**: Applies the Heuristics Miner algorithm to discover process models.
 - **Difference Analysis**: Compares old and new process models to identify differences.
 - **Visualization**: Generates PDF graphs highlighting the differences between models.
+
+# Experiments Paper:
+
+**White-Box Validation of Collective Adaptive Systems by Statistical Model Checking and Process Mining. ISoLA (1) 2024: 204-222**
+Roberto Casaluce, Max Tschaikowski, Andrea Vandin:
 
 ## Prerequisites
 
