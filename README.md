@@ -8,39 +8,38 @@
 `diff_heu_heu.py` is a Python command-line application designed to create a diff model, apply the Heuristics Miner algorithm, compare "old" and "new" process models, and generate visualizations highlighting their differences. 
 This tool is particularly useful for analyzing and visualizing the differences in simulated models.
 
-**Definition**
-Consider two versions of a model, referred to as the *1<sup>st</sup> model* and the *2<sup>nd</sup> model*, each obtained by simulating potentially distinct variants of a formal specification. Unlike the original diff model, which relied on automatically generated graphical representations of the procedural part of the model, the new diff model is derived directly from the simulated event logs of the two model variants under comparison.
+## Definition
+
+Consider two versions of a model, referred to as the *1<sup>st</sup>* model and the *2<sup>nd</sup>* model, each obtained by simulating potentially distinct variants of a formal specification. Unlike the original diff model, which relied on automatically generated graphical representations of the procedural part of the model, the new diff model is derived directly from the simulated event logs of the two model variants under comparison.
 
 **Let:**
 
-- \( L_1 \) be the event log obtained from simulating the *1<sup>st</sup> model*.
-- \( L_2 \) be the event log obtained from simulating the *2<sup>nd</sup> model*.
+- **L1** be the event log obtained from simulating the *1<sup>st</sup>* model.
+- **L2** be the event log obtained from simulating the *2<sup>nd</sup>* model.
 
-Each log \( L_i \) contains sequences of events, with each event including at least a case ID, a timestamp, and an activity name. If the underlying formalism distinguishes between states and activities, a preprocessing step merges states and transitions into a unified set of activities for process discovery. Otherwise, if only activities are available, no such merging is required.
+Each log L<sub>i</sub> contains sequences of events, with each event including at least a case ID, a timestamp, and an activity name. If the underlying formalism distinguishes between states and activities, a preprocessing step merges states and transitions into a unified set of activities for process discovery. Otherwise, if only activities are available, no such merging is required.
 
 We apply the **Heuristics Miner (HM)** algorithm to each log separately, obtaining two Heuristics Nets (HNs):
 
-- \( H_1 = (N_1, E_1, \text{freq}_1) \) from \( L_1 \)
-- \( H_2 = (N_2, E_2, \text{freq}_2) \) from \( L_2 \)
+- **H1** = (N1, E1, freq1) from L1  
+- **H2** = (N2, E2, freq2) from L2
 
 **Here:**
 
-- \( N_i \) is a set of nodes representing discovered activities, as well as special start and end nodes.
-- \( E_i \subseteq N_i \times N_i \) is a set of edges capturing directly-follows relationships.
-- \( \text{freq}_i: E_i \rightarrow \mathbb{N} \) assigns frequencies to each edge.
+- N<sub>i</sub> is a set of nodes representing discovered activities, as well as special start and end nodes.
+- E<sub>i</sub> is a set of edges capturing directly-follows relationships among nodes in N<sub>i</sub>.
+- freq<sub>i</sub> assigns frequencies to each edge in E<sub>i</sub>.
 
-The new diff model \( \mathcal{D} \) is defined as: 
+The new diff model **D** is defined as:
 
-\[
-\mathcal{D} = (N_D, E_D, \ell_N, \ell_E)
-\]
+D = (N_D, E_D, lN, lE)
 
 **Where:**
 
-- \( N_D = N_1 \cup N_2 \) is the union of the nodes from both HNs.
-- \( E_D = E_1 \cup E_2 \) is the union of all edges.
-- \( \ell_N: N_D \rightarrow \{\text{common},\; \text{1st-only},\; \text{2nd-only}\} \) labels each node based on whether it appears in both models (*common*), only in the *1<sup>st</sup> model* (*1st-only*), or only in the *2<sup>nd</sup> model* (*2nd-only*).
-- \( \ell_E: E_D \rightarrow \{\text{common},\; \text{1st-only},\; \text{2nd-only}\} \) labels each edge similarly.
+- **N_D** = N1 ∪ N2 (the union of the nodes from both HNs).
+- **E_D** = E1 ∪ E2 (the union of all edges).
+- **lN** : N_D → { common, 1st-only, 2nd-only } labels each node based on whether it appears in both models (common), only in the 1<sup>st</sup> model (1st-only), or only in the 2<sup>nd</sup> model (2nd-only).
+- **lE** : E_D → { common, 1st-only, 2nd-only } labels each edge similarly.
 
 **In the new diff model:**
 
@@ -255,14 +254,17 @@ This will generate:
 - `complete_differences.pdf`
 - `filtered_differences.pdf`
 
-### Example
+### Run Experiments 
 
-Assuming your CSV files are located in `./data/`, run:
+#### Paper: Roberto Casaluce, Max Tschaikowski, Andrea Vandin:
+#### White-Box Validation of Collective Adaptive Systems by Statistical Model Checking and Process Mining. ISoLA (1) 2024: 204-222
+
+Assuming your CSV files are located in `./logs/`, run:
 
 ```bash
-python smc_pm_logs.py \
-    --file_path_old "./data/first_model.csv" \
-    --file_path_new "./data/second_model.csv" \
+python diff_heu_heu.py \
+    --file_path_old "./logs/robot_main_first.csv" \
+    --file_path_new "./logs/robot_main_second.csv" \
     --output_full "complete_differences" \
     --output_filtered_full "filtered_differences"
 ```
