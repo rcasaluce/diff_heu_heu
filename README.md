@@ -1,6 +1,6 @@
 
 
-# White-box Model Validation with Statistical Model Checking and Process Mining
+# New Diff Model for White-box Model Validation with Statistical Model Checking and Process Mining
 
 ## Overview
 
