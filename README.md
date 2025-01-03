@@ -323,19 +323,37 @@ After execution, the script will generate the following PDF files in the current
      ```bash
      python --version
      ```
+### Please cite this work using:
 
-### Advanced Logging
+```
 
-For more detailed logs, consider modifying the script to use Python's `logging` module instead of `print` statements.
+@inproceedings{DBLP:conf/isola/CasaluceTV24,
+  author       = {Roberto Casaluce and
+                  Max Tschaikowski and
+                  Andrea Vandin},
+  editor       = {Tiziana Margaria and
+                  Bernhard Steffen},
+  title        = {White-Box Validation of Collective Adaptive Systems by Statistical
+                  Model Checking and Process Mining},
+  booktitle    = {Leveraging Applications of Formal Methods, Verification and Validation.
+                  REoCAS Colloquium in Honor of Rocco De Nicola - 12th International
+                  Symposium, ISoLA 2024, Crete, Greece, October 27-31, 2024, Proceedings,
+                  Part {I}},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {15219},
+  pages        = {204--222},
+  publisher    = {Springer},
+  year         = {2024},
+  url          = {https://doi.org/10.1007/978-3-031-73709-1\_13},
+  doi          = {10.1007/978-3-031-73709-1\_13},
+  timestamp    = {Tue, 22 Oct 2024 21:07:33 +0200},
+  biburl       = {https://dblp.org/rec/conf/isola/CasaluceTV24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 
-## Extensibility
+```
 
-The script is modular, allowing you to easily add more functionalities or modify existing ones as per your requirements. For example, you can extend the script to handle additional event log files, integrate other process mining algorithms, or enhance the visualization features.
-
-## Contribution
-
-Contributions are welcome! Please fork the repository and submit a pull request with your enhancements.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under Apache License 2.0. See the [LICENSE](LICENSE) file for details.
