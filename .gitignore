@@ -1,0 +1,24 @@
+# File specifici di macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+_*.DS_Store
+._*
+
+# Icone
+Icon
+
+# Trashes
+.Trashes
+
+# File temporanei
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.VolumeIcon.icns
+
+# File di cache
+.cache
+
